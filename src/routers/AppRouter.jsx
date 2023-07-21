@@ -7,7 +7,7 @@ import {
 
 import { LoginPage } from "../auth"
 import { HeroesApp } from "../HeroesApp";
-import { DcPage, Hero, MarvelPage, SearchPage} from "../heroes";
+import { DcPage, HeroPage, MarvelPage, SearchPage} from "../heroes";
 import { ErrorPage } from "../ui/components/ErrorPage";
 
 const router = createBrowserRouter([
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         element: <SearchPage/>
       },
       {
-        path: '/hero',
-        element: <Hero/>
+        path: '/hero/:id',
+        element: <HeroPage/>
       }
     ],
   },
