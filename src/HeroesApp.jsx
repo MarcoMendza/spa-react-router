@@ -5,9 +5,11 @@ import { Navbar } from './ui/components/NavBar'
 
 export const HeroesApp = () => {
   return (
-    <>    
-        <Navbar/>
-        <Outlet/>
+    <>
+      <Navbar/>
+      <div className='container'>    
+          <Outlet/>
+      </div>
     </>
   )
 }

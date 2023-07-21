@@ -7,13 +7,14 @@ import {
 
 import { LoginPage } from "../auth"
 import { HeroesApp } from "../HeroesApp";
-import { DcPage, MarvelPage} from "../heroes";
+import { DcPage, Hero, MarvelPage, SearchPage} from "../heroes";
 import { ErrorPage } from "../ui/components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: '/',    
     element: <HeroesApp/>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         index: true,
@@ -29,15 +30,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/search',
-        element: <MarvelPage/>
+        element: <SearchPage/>
+      },
+      {
+        path: '/hero',
+        element: <Hero/>
       }
     ],
-    errorElement: <ErrorPage />,
   },
   {
     path: 'login',
     element: <LoginPage/>,
-    errorElement: <ErrorPage />,
   },  
 ])
 
