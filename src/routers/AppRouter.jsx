@@ -10,11 +10,16 @@ import { HeroesApp } from "../HeroesApp";
 import { DcPage, HeroPage, MarvelPage, SearchPage} from "../heroes";
 import { ErrorPage } from "../ui/components/ErrorPage";
 import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 const router = createBrowserRouter([
   {
     path: "login",
-    element: <LoginPage />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
     errorElement: <ErrorPage/>
   },
   {
