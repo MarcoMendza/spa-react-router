@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { LoginPage } from "../auth"
+import { AuthProvider, LoginPage } from "../auth"
 import { HeroesApp } from "../HeroesApp";
 import { DcPage, HeroPage, MarvelPage, SearchPage} from "../heroes";
 import { ErrorPage } from "../ui/components/ErrorPage";
@@ -46,8 +46,9 @@ const router = createBrowserRouter([
 
 export const AppRouter = () => {
   return (
-    <>
+    <AuthProvider>
       <RouterProvider router={ router }/>
-    </>
+    </AuthProvider>
+    
   )
 }
