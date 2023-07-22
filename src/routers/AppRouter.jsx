@@ -9,40 +9,46 @@ import { AuthProvider, LoginPage } from "../auth"
 import { HeroesApp } from "../HeroesApp";
 import { DcPage, HeroPage, MarvelPage, SearchPage} from "../heroes";
 import { ErrorPage } from "../ui/components/ErrorPage";
+import { PrivateRoute } from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
-    path: '/',    
-    element: <HeroesApp/>,
+    path: "login",
+    element: <LoginPage />,
+    errorElement: <ErrorPage/>
+  },
+  {
+    path: "/",
+    element: (
+      <PrivateRoute>
+        <HeroesApp />
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage/>,
     children: [
       {
         index: true,
-        element: <Navigate to={'/marvel'}/>
+        element: <Navigate to={"/marvel"} />,
       },
       {
-        path: '/dc',
-        element: <DcPage/>
+        path: "/dc",
+        element: <DcPage />,
       },
       {
-        path: '/marvel',
-        element: <MarvelPage/>
+        path: "/marvel",
+        element: <MarvelPage />,
       },
       {
-        path: '/search',
-        element: <SearchPage/>
+        path: "/search",
+        element: <SearchPage />,
       },
       {
-        path: '/hero/:id',
-        element: <HeroPage/>
-      }
+        path: "/hero/:id",
+        element: <HeroPage />,
+      },
     ],
   },
-  {
-    path: 'login',
-    element: <LoginPage/>,
-  },  
-])
+]);
 
 export const AppRouter = () => {
   return (
